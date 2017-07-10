@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include font-size($base-font);
+}

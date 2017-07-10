@@ -1,0 +1,24 @@
+@import "../node_modules/normalize-scss/sass/_normalize.scss";
+
+// Configuration and helpers
+@import
+    "utils/variables",
+    "utils/mixins";
+
+// General classes etc.
+@import
+    "base/general";
+
+// Layout
+@import
+    "layout/layout",
+    "layout/header",
+    "layout/footer";
+
+// Components
+@import
+    "components/buttons";
+
+// Page-specific styles
+@import
+    "pages/home";
