@@ -39,6 +39,8 @@
     "svgstore": "^1.1.0"
   },
   "devDependencies": {
-    "postcss-split": "0.0.4"
+    "mappy-breakpoints": "^0.2.3",
+    "postcss-split": "0.0.4",
+    "typi": "^3.1.0"
   }
 }

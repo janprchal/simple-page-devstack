@@ -17,15 +17,14 @@ gulp.task('serve', () => {
     }, () => copyToClipboard('localhost:' + config.BS_PORT, () => gutil.log(gutil.colors.green('Local server address has been copied to your clipboard'))));
 
 
-   /* Ready for addition tasks */
-   gulp.watch(config.SCSS_ALL, ['styles']);
-   // gulp.watch(config.TEMPLATES_ALL);
-   // gulp.watch(config.TEMPLATES_ALL).on('change', browserSync.reload());
-   // watch(config.JS_ALL, () => browserSync.reload());
+  /* Ready for addition tasks */
+  gulp.watch(config.SCSS_ALL, ['styles']);
+  //  TODO make templates, JS tasks they contains browserSync.reload()
+  gulp.watch(config.TEMPLATES_ALL, () => browserSync.reload());
+  gulp.watch(config.JS_ALL, () => browserSync.reload());
 
-    // watch(config.CSS_ALL, () => runSequence(['styles', 'styleguide']));
-    // watch(config.JS_ALL, ['eslint:app']);
-    // watch(config.IMAGES_ALL, ['images', 'tpl']);
-    // watch(config.SVG_SPRITE_ALL, ['svg', 'tpl']);
-    // watch(config.TEMPLATE_ALL, ['tpl']);
+  // watch(config.CSS_ALL, () => runSequence(['styles', 'styleguide']));
+  // watch(config.IMAGES_ALL, ['images', 'tpl']);
+  // watch(config.SVG_SPRITE_ALL, ['svg', 'tpl']);
+  // watch(config.TEMPLATE_ALL, ['tpl']);
 });

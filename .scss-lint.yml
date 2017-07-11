@@ -1,0 +1,127 @@
+# Default application configuration that all configurations inherit from.
+
+scss_files: "**/*.scss"
+
+plugin_directories: ['.scss-linters']
+
+# List of gem names to load custom linters from (make sure they are already
+# installed)
+plugin_gems: []
+
+# Default severity of all linters.
+severity: warning
+
+linters:
+  EmptyLineBetweenBlocks:
+    enabled: true
+  EmptyRule:
+    enabled: true
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: false
+  HexValidation:
+    enabled: true
+  HexLength:
+    enabled: false
+  HexNotation:
+    enabled: true
+    style: lowercase
+  ImportantRule:
+    enabled: false
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: space
+    width: 2
+  LeadingZero:
+    enabled: false
+  MergeableSelector:
+    enabled: false
+  PropertySortOrder:
+    enabled: true
+    order:
+      - content
+      - quotes
+      -
+      - display
+      - visibility
+      -
+      - position
+      - z-index
+      - top
+      - right
+      - bottom
+      - left
+      -
+      - box-sizing
+      - width
+      - min-width
+      - max-width
+      - height
+      - min-height
+      - max-height
+      -
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+      -
+      - float
+      - clear
+      -
+      - overflow
+      - overflow-x
+      - overflow-y
+      - transform
+      - transform-origin
+      - transform-style
+      - backface-visibility
+      - perspective
+      - perspective-origin
+      -
+      - transition
+      - transition-property
+      - transition-duration
+      - transition-timing-function
+      - transition-delay
+      -
+      - animation
+      - animation-name
+      - animation-duration
+      - animation-play-state
+      - animation-timing-function
+      - animation-delay
+      - animation-iteration-count
+      - animation-direction
+    separate_groups: true
+  PropertySpelling:
+    enabled: true
+    extra_properties: []
+    disabled_properties: []
+  PseudoElement:
+    enabled: false
+  QualifyingElement:
+    enabled: false
+  SelectorDepth:
+    enabled: false
+  SelectorFormat:
+    enabled: false
+  Shorthand:
+    enabled: false
+  SingleLinePerSelector:
+    enabled: false
+  StringQuotes:
+    enabled: false
+  TrailingSemicolon:
+    enabled: true
+  TrailingWhitespace:
+    enabled: false
+  ZeroUnit:
+    enabled: false
