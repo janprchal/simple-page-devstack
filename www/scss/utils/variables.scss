@@ -1,18 +1,70 @@
 //-------------------------------//
-//              GRID             //
+//           RESPONSIVE          //
 //-------------------------------//
-$cols:                      12;
-$width:                     80em;
+$mobile-min:                1px;
+$mobile-l-min:              567px;
+$mobile-l-max:              736px;
+$mobile-max:                767px;
 
-$mobile-min:                0.1em;
-$mobile-max:                40em;
+$tablet-min:                768px;
+$tablet-l-min:              800px;
+$tablet-max:                1023px;
 
-$tablet-min:                40.063em;
-$tablet-max:                64em;
+$screen-min:                1024px;
+$screen-max:                1599px;
 
-$screen-min:                64.063em;
+$largescreen-min:           1600px;
+
+$breakpoints: (
+  mobile-l-min: $mobile-l-min,
+  mobile-l-max: $mobile-l-max,
+
+  tablet-min: $tablet-min,
+  tablet-max: $tablet-max,
+  tablet-l-min: $tablet-l-min,
+
+  screen-min: $screen-min,
+  screen-max: $screen-max,
+
+  largescreen-min: $largescreen-min
+);
+
+$mappy-queries: (
+  mobile-only: mappy-bp(mobile-min mobile-max),
+  mobile-landscape: mappy-bp(mobile-l-min orientation landscape),
+  tablet: mappy-bp(tablet-min),
+  tabet-only: mappy-bp(tablet-min tablet-max),
+  tablet-landscape: mappy-bp(tablet-min orientation landscape),
+  screen: mappy-bp(screen-min),
+  screen-only: mappy-bp(screen-min screen-min),
+  largescreen: mappy-bp(largescreen-min)
+);
+
 
 //-------------------------------//
 //           TYPOGRAPHY          //
 //-------------------------------//
-$base-font:                 1.4;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+$typi: (
+  base: (
+    null: (14px, 1.6), // null vychozi hodnota - mobile
+    tablet-min: (15px, 1.75), // tablet
+    screen-min: (15px, 1.75), // screen (desktop)
+    largescreen-min: (16px, 1.75), // screen (desktop) s vysokym rozlysenim
+  ),
+
+  h1-font-map: (
+    null: (18px, 1.6), // bere jako defaultni - bez media queries
+    tablet-min: (24px, 1.75),
+    screen-min: (36px, 1.75),
+    largescreen-min: (42px, 1.75),
+  )
+);
+
+
+//-------------------------------//
+//              MISC             //
+//-------------------------------//
+$img-path: './../img';

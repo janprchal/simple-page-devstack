@@ -1,16 +1,13 @@
-* {
-    box-sizing: border-box !important;
-}
-
 html,
 body {
-    height: 100%;
+  box-sizing: border-box;
+  height: 100%;
 }
 
-html {
-    font-size: 62.5%;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
-    @include font-size($base-font);
+  @include typi-base();
 }
