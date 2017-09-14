@@ -38,6 +38,8 @@ linters:
     enabled: false
   MergeableSelector:
     enabled: false
+  PlaceholderInExtend:
+    enabled: false
   PropertySortOrder:
     enabled: true
     order:
@@ -55,6 +57,12 @@ linters:
       - left
       -
       - box-sizing
+      - flex
+      - flex-direction
+      - flex-wrap
+      - justify-content
+      - align-items
+
       - width
       - min-width
       - max-width
@@ -75,6 +83,21 @@ linters:
       -
       - float
       - clear
+      - background
+      - background-color
+      - opacity
+      - border
+      - border-width
+      - border-top-width
+      - border-right-width
+      - border-bottom-width
+      - border-left-width
+      - border-style
+      - border-top-style
+      - border-right-style
+      - border-left-style
+      - border-bottom-style
+      - border-color
       -
       - overflow
       - overflow-x
@@ -85,6 +108,16 @@ linters:
       - backface-visibility
       - perspective
       - perspective-origin
+      -
+      - font-family
+      - font-size
+      - font-weight
+      - line-height
+      -
+      - text-align
+      - text-transform
+      - text-decoration
+      - color
       -
       - transition
       - transition-property

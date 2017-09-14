@@ -9,6 +9,9 @@ const runSequence = require('run-sequence');
 //, ['prepare']
 gulp.task('serve', () => {
     browserSync({
+        // injectChanges: true,
+        // proxy: 'enrian.localhost',
+        // baseDir: config.BS_BASE_DIR
         port: config.BS_PORT,
         server: {
             baseDir: config.BS_BASE_DIR
@@ -21,7 +24,7 @@ gulp.task('serve', () => {
   gulp.watch(config.SCSS_ALL, ['styles']);
   //  TODO make templates, JS tasks they contains browserSync.reload()
   gulp.watch(config.TEMPLATES_ALL, () => browserSync.reload());
-  gulp.watch(config.JS_ALL, () => browserSync.reload());
+  gulp.watch(config.JS_ALL + '**/*', () => browserSync.reload());
 
   // watch(config.CSS_ALL, () => runSequence(['styles', 'styleguide']));
   // watch(config.IMAGES_ALL, ['images', 'tpl']);

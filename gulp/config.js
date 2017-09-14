@@ -23,7 +23,7 @@ const
     /* CSS */
     CSS_BUILD = './www/css/',
 
-    TEMPLATES_ALL = './templates/**/*.html',
+    TEMPLATES_ALL = './**/*.html',
 
     IMAGES_ALL = './www/img';
 
