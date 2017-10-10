@@ -8,10 +8,10 @@ const browserSync = require('browser-sync');
 const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 
-gulp.task('svg:sprite', () => {
+gulp.task('svg-sprite', () => {
     var spriteName = config.SVG_SPRITE_NAME;
 
-    return gulp.src(config.SVG_ALL_PATH)
+    return gulp.src(config.SVG_ALL_SOURCE)
 
         .pipe(svgmin((file) => {
             const prefix = path.basename(file.relative, path.extname(file.relative));
@@ -40,9 +40,8 @@ gulp.task('svg:sprite', () => {
 });
 
 gulp.task('svg-build', () => {
-    return gulp.src(config.SVG_ALL_PATH)
-        .pipe(svgmin())
-        .pipe(gulp.dest('./dist/www/svg/'));
+    return gulp.src(config.SVG_BUILD + '/*.svg')
+        .pipe(gulp.dest('./dist/www/svg'));
 });
 
 gulp.task('svg', ['svg:sprite']);

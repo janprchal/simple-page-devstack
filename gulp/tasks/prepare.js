@@ -1,14 +1,14 @@
 // const config = require('../config');
 // const gulp = require('gulp');
-
+//
 // const runSequence = require('run-sequence');
+//
+//
+// const sequence = ['svg-sprite', 'scripts-vendors'];
 
-// TODO run browserSync after all tasks finished
-// const devSequence = ['clean', ['images', 'svg', 'styles', 'js'], 'tpl', 'styleguide', 'copySgAssets'];
-// const sequence = ['svg', 'styles'];
-//
+
 // gulp.task('prepare', () => runSequence(...sequence));
-//
+
 // module.exports = {
 //     sequence
 // };

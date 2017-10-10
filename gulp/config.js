@@ -3,9 +3,9 @@ const
 
     /* PATH IS TAKEN FROM GULPFILE.JS */
     /* SVG */
-    SVG_ALL_PATH = './www/svg/*.svg',
-    SVG_BUILD = './www/svg-build/',
-    SVG_SPRITE_NAME = 'sprite',
+    SVG_ALL_SOURCE = './www/svg-source/*.svg',
+    SVG_BUILD = './www/svg/',
+    SVG_SPRITE_NAME = 'svg-sprite',
 
     /* browserSync */
     BS_PORT = 3000,
@@ -30,7 +30,7 @@ const
 module.exports = {
     DEVELOPMENT,
 
-    SVG_ALL_PATH,
+    SVG_ALL_SOURCE,
     SVG_BUILD,
     SVG_SPRITE_NAME,
 
