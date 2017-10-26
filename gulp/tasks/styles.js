@@ -18,7 +18,7 @@ gulp.task('styles', () => {
     const postCssPlugins = [
         flexbugsFixes,
         autoprefixer({
-            browsers: ['last 6 versions', 'IE 10', 'IE 11']
+            browsers: ['last 6 version', 'IE 10', 'IE 11', 'iOS >=7']
         })
     ];
 
@@ -35,7 +35,10 @@ gulp.task('styles', () => {
 //  TODO - critical CSS
 gulp.task('styles-build', ['styles'], () => {
     const postcssDistPlugins = [
-        cssnano({ safe: true })
+        cssnano({
+            autoprefixer: { browsers: ['last 6 version', 'IE 10', 'IE 11', 'iOS >=7'] },
+            save: true
+        })
     ];
 
     return gulp.src(config.CSS_BUILD + '*.css')
