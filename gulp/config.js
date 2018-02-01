@@ -25,7 +25,10 @@ const
 
     TEMPLATES_ALL = './**/*.html',
 
-    IMAGES_ALL = './www/img';
+    IMAGES_ALL = './www/img',
+
+    FAVICON_SOURCE = './favico.svg',
+    FAVICON_JSON = 'faviconData.json';
 
 module.exports = {
     DEVELOPMENT,
@@ -47,5 +50,8 @@ module.exports = {
     CSS_BUILD,
 
     TEMPLATES_ALL,
-    IMAGES_ALL
+    IMAGES_ALL,
+
+    FAVICON_SOURCE,
+    FAVICON_JSON
 };
