@@ -1,24 +1,30 @@
-@import "../node_modules/normalize-scss/sass/_normalize.scss";
+@import "./../../node_modules/mappy-breakpoints/mappy-breakpoints";
+@import "./../../node_modules/typi/scss/typi";
+
 
 // Configuration and helpers
 @import
-    "utils/variables",
-    "utils/mixins";
+  "utils/variables",
+  "utils/mixins";
 
 // General classes etc.
 @import
-    "base/general";
+  "base/normalize",
+  "base/general";
 
 // Layout
 @import
-    "layout/layout",
-    "layout/header",
-    "layout/footer";
+  "layout/grid",
+  "layout/layout";
+
+@import
+  "objects/header",
+  "objects/footer";
 
 // Components
 @import
-    "components/buttons";
+  "components/component";
 
 // Page-specific styles
 @import
-    "pages/home";
+  "pages/home";

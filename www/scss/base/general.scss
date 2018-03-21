@@ -11,3 +11,9 @@ body {
 body {
   @include typi-base();
 }
+
+
+.icon {
+  width: 100px;
+  height: 20px;
+}

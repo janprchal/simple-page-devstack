@@ -8,38 +8,61 @@ $mobile-max:                767px;
 
 $tablet-min:                768px;
 $tablet-l-min:              800px;
-$tablet-max:                1023px;
+$tablet-max:                1159px;
 
-$screen-min:                1024px;
-$screen-max:                1599px;
+$screen-min:                1160px;
+$screen-max:                1679px;
 
-$largescreen-min:           1600px;
+$largescreen-min:           1680px;
 
 $breakpoints: (
-  mobile-l-min: $mobile-l-min,
-  mobile-l-max: $mobile-l-max,
+        mobile-l-min: $mobile-l-min,
+        mobile-l-max: $mobile-l-max,
 
-  tablet-min: $tablet-min,
-  tablet-max: $tablet-max,
-  tablet-l-min: $tablet-l-min,
+        tablet-min: $tablet-min,
+        tablet-max: $tablet-max,
+        tablet-l-min: $tablet-l-min,
 
-  screen-min: $screen-min,
-  screen-max: $screen-max,
+        screen-min: $screen-min,
+        screen-max: $screen-max,
 
-  largescreen-min: $largescreen-min
+        largescreen-min: $largescreen-min
 );
 
 $mappy-queries: (
-  mobile-only: mappy-bp(mobile-min mobile-max),
-  mobile-landscape: mappy-bp(mobile-l-min orientation landscape),
-  tablet: mappy-bp(tablet-min),
-  tabet-only: mappy-bp(tablet-min tablet-max),
-  tablet-landscape: mappy-bp(tablet-min orientation landscape),
-  screen: mappy-bp(screen-min),
-  screen-only: mappy-bp(screen-min screen-min),
-  largescreen: mappy-bp(largescreen-min)
+        mobile-only: mappy-bp(mobile-min mobile-max),
+        mobile-bigger: mappy-bp(mobile-l-min),
+        mobile-landscape: mappy-bp(mobile-l-min orientation landscape),
+        tablet: mappy-bp(tablet-min),
+        tabet-only: mappy-bp(tablet-min tablet-max),
+        tablet-landscape: mappy-bp(tablet-min orientation landscape),
+        screen: mappy-bp(screen-min),
+        screen-only: mappy-bp(screen-min screen-min),
+        largescreen: mappy-bp(largescreen-min)
 );
 
+
+//-------------------------------//
+//              GRID             //
+//-------------------------------//
+$grid-cols: 12;
+$grid-map: (
+  '': 0,
+  '-sm': 'mobile-bigger',
+  '-md': 'tablet',
+  '-lg': 'screen',
+  '-xl': 'largescreen'
+);
+
+$container-padding-x--md: 2rem;
+$container-padding-x--lg: 3rem;
+
+$col-padding-x--sm: .5rem;
+$col-padding-x--md: .8rem;
+$col-padding-x--lg: 1rem;
+$col-padding-x--xl: 1.25rem;
+
+$gaps-stop: 50;
 
 //-------------------------------//
 //           TYPOGRAPHY          //
@@ -68,3 +91,5 @@ $typi: (
 //              MISC             //
 //-------------------------------//
 $img-path: './../img';
+
+$stop: 50;

@@ -1,0 +1,131 @@
+.row {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  width: calc(100% + #{$col-padding-x--sm});
+
+  // TODO negative margin left makes colums in row not 100% width
+  margin-left: $col-padding-x--sm * -1;
+
+  @include mappy-query(tablet) {
+    width: calc(100% + #{$col-padding-x--md});
+    margin-left: $col-padding-x--md * -1;
+  }
+
+  @include mappy-query(screen) {
+    width: calc(100% + #{$col-padding-x--lg});
+    margin-left: $col-padding-x--lg * -1;
+  }
+
+  @include mappy-query(largescreen) {
+    width: calc(100% + #{$col-padding-x--xl});
+    margin-left: $col-padding-x--xl * -1;
+  }
+
+  // All cols in row
+  & *[class*="col-"] {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    @include mappy-query(tablet) {
+      padding-left: $col-padding-x--md;
+    }
+
+    @include mappy-query(screen) {
+      padding-left: $col-padding-x--lg;
+    }
+
+    @include mappy-query(largescreen) {
+      padding-left: $col-padding-x--xl;
+    }
+  }
+}
+
+.row--single-el {
+  padding-left: $col-padding-x--sm;
+
+  @include mappy-query(tablet) {
+    padding-left: $col-padding-x--md;
+  }
+
+  @include mappy-query(screen) {
+    padding-left: $col-padding-x--lg;
+  }
+
+  @include mappy-query(largescreen) {
+    padding-left: $col-padding-x--xl;
+  }
+}
+
+.row--no-gutter {
+  margin-left: 0;
+  width: 100%;
+
+  & *[class*="l-col-"] {
+    padding-left: 0;
+  }
+}
+
+.row--x-center {
+  justify-content: center;
+}
+
+.row--x-end {
+  justify-content: flex-end;
+}
+
+.row--y-middle {
+  align-items: center;
+}
+
+.row--full-h {
+  height: 100%;
+}
+
+.row--not-stretch {
+  align-items: flex-start;
+}
+
+.col {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+@mixin create-mq($breakpoint) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @include mappy-query($breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    .col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+
+    @for $i from 1 through $grid-cols {
+      .col-#{$i} {
+        flex-basis: (100 / ($grid-cols / $i) ) * 1%;
+        max-width: (100 / ($grid-cols / $i)) * 1%;
+      }
+
+      .col#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid-cols / $i) ) * 1%;
+        max-width: (100 / ($grid-cols / $i)) * 1%;
+      }
+
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: (100 / ($grid-cols / $i) ) * 1%;
+      }
+    }
+  }
+}
+
+@each $modifier , $breakpoint in $grid-map {
+  @include create-col-classes($modifier, $grid-cols, $breakpoint);
+}

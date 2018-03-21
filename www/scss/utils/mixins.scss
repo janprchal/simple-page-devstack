@@ -48,3 +48,118 @@
 		src: $src;
 	}
 }
+
+// =============================================================================
+// Generuje marginy formou trid typu mt-$i { margin-top: $i } kde $i je iterace
+// od 0 do 50ti po 5ti
+// generuje vsechny smery
+// $stop - variables.scss
+// =============================================================================
+
+@mixin margin($stop) {
+  $margins: (
+          top: (
+                  shortcut: mt,
+                  long: margin-top
+          ),
+
+          right: (
+                  shortcut: mr,
+                  long: margin-right
+          ),
+
+          bottom: (
+                  shortcut: mb,
+                  long: margin-bottom
+          ),
+
+          left: (
+                  shortcut: ml,
+                  long: margin-left
+          ),
+
+          margin: (
+                  shortcut: m,
+                  long: margin
+          )
+  );
+
+  @each $item, $direction in $margins {
+    $i: 0;
+
+    @while $i <= $stop {
+      .#{map-get($direction, shortcut)}-#{$i} {
+        #{map-get($direction, long)}: #{$i}px;
+      }
+      $i: $i + 5;
+    }
+  }
+}
+
+@mixin padding($stop) {
+  $paddings: (
+          top: (
+                  shortcut: pt,
+                  long: padding-top
+          ),
+
+          right: (
+                  shortcut: pr,
+                  long: padding-right
+          ),
+
+          bottom: (
+                  shortcut: pb,
+                  long: padding-bottom
+          ),
+
+          left: (
+                  shortcut: pl,
+                  long: padding-left
+          ),
+
+          padding: (
+                  shortcut: p,
+                  long: padding
+          )
+  );
+
+  @each $item, $direction in $paddings {
+    $i: 0;
+
+    @while $i <= $stop {
+      .#{map-get($direction, shortcut)}-#{$i} {
+        #{map-get($direction, long)}: #{$i}px;
+      }
+      $i: $i + 5;
+    }
+  }
+}
+
+// =============================================================================
+// Pridava stylovani pro ::placeholder pseudoelement
+// =============================================================================
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
