@@ -1,0 +1,88 @@
+// Variables -> variables.scss
+// Swtich
+$switch-h: 24px;
+$switch-w: $switch-h * 2;
+
+$switch-toggle-w: $switch-h - 4px;
+$switch-toggle-h: $switch-h - 4px;
+
+$primary-c: #50a2ff;
+$neutral-c: #d0d0d0;
+
+$light-c: #ffffff;
+$text-c: #373737;
+
+$text-s--smaller: 14px;
+
+.c-switch {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  cursor: pointer;
+  -webkit-tap-highht-color: transparent;
+}
+
+.c-switch__label {
+  display: block;
+
+  margin-bottom: 0;
+
+  font-size: $text-s--smaller;
+}
+
+.c-switch__input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c-switch__path {
+  position: relative;
+  display: block;
+
+  width: $switch-w;
+  height: $switch-h;
+
+  margin-right: 1rem;
+
+  background-color: darken($neutral-c, 5%);
+
+  border-radius: $switch-h / 2;
+
+  transition: all .2s linear;
+}
+
+.c-switch__toggle {
+  display: block;
+
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  width: $switch-toggle-w;
+  height: $switch-toggle-h;
+
+  background-color: $light-c;
+
+  border-radius: 50%;
+
+  transition: transform .24s ease-in;
+}
+
+.c-switch__input:checked + .c-switch__path {
+  background-color: $primary-c;
+}
+
+.c-switch__input:checked + .c-switch__path .c-switch__toggle {
+  transform: translateX(calc(100% + 4px));
+}
+
+.c-switch__input:checked + .c-switch__path + .c-switch__label {
+  color: $text-c;
+}

@@ -16,6 +16,7 @@ $screen-max:                1679px;
 $largescreen-min:           1680px;
 
 $breakpoints: (
+        mobile-min: $mobile-min,
         mobile-l-min: $mobile-l-min,
         mobile-l-max: $mobile-l-max,
 
@@ -30,6 +31,8 @@ $breakpoints: (
 );
 
 $mappy-queries: (
+        
+        mobile: mappy-bp(mobile-min),
         mobile-only: mappy-bp(mobile-min mobile-max),
         mobile-bigger: mappy-bp(mobile-l-min),
         mobile-landscape: mappy-bp(mobile-l-min orientation landscape),
@@ -48,7 +51,7 @@ $mappy-queries: (
 $grid-cols: 12;
 $grid-map: (
   '': 0,
-  '-sm': 'mobile-bigger',
+  '-sm': 'mobile',
   '-md': 'tablet',
   '-lg': 'screen',
   '-xl': 'largescreen'
