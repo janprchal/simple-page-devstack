@@ -2,18 +2,18 @@
 //           RESPONSIVE          //
 //-------------------------------//
 $mobile-min:                1px;
-$mobile-l-min:              567px;
+$mobile-l-min:              460px;
 $mobile-l-max:              736px;
 $mobile-max:                767px;
 
 $tablet-min:                768px;
-$tablet-l-min:              800px;
+$tablet-l-min:              960px;
 $tablet-max:                1159px;
 
 $screen-min:                1160px;
-$screen-max:                1679px;
+$screen-max:                1359px;
 
-$largescreen-min:           1680px;
+$largescreen-min:           1360px;
 
 $breakpoints: (
         mobile-min: $mobile-min,
@@ -32,14 +32,13 @@ $breakpoints: (
 );
 
 $mappy-queries: (
-        
         mobile: mappy-bp(mobile-min),
         mobile-only: mappy-bp(mobile-min mobile-max),
         mobile-bigger: mappy-bp(mobile-l-min),
         mobile-landscape: mappy-bp(mobile-l-min orientation landscape),
         tablet: mappy-bp(tablet-min),
         tabet-only: mappy-bp(tablet-min tablet-max),
-        tablet-landscape: mappy-bp(tablet-min orientation landscape),
+        tablet-bigger: mappy-bp(tablet-l-min),
         screen: mappy-bp(screen-min),
         screen-only: mappy-bp(screen-min screen-min),
         largescreen: mappy-bp(largescreen-min)
@@ -58,8 +57,11 @@ $grid-map: (
   '-xl': 'largescreen'
 );
 
+$container-padding-x--sm: 1rem;
 $container-padding-x--md: 2rem;
 $container-padding-x--lg: 3rem;
+
+$container-max-w: 1360px;
 
 $col-padding-x--sm: .5rem;
 $col-padding-x--md: .8rem;
@@ -73,6 +75,17 @@ $gaps-stop: 50;
 //-------------------------------//
 $base-font-size: 16px;
 $base-line-height: 1.5;
+
+$text-font-family: montserrat, sans-serif;
+
+$text-s: 1rem;
+
+$text-s--smaller: 87.5%; // 14px;
+$text-s--small: 81.25%; // 13px;
+$text-s--smallest: 75%; // 12px
+
+$text-s--bigger: 112.5%; // 18px;
+$text-s--big: 125%; // 20px;
 
 $typi: (
   base: (
@@ -90,10 +103,50 @@ $typi: (
   )
 );
 
+//-------------------------------//
+//             COLORS            //
+//-------------------------------//
+$light-c: #ffffff;
+$dark-c: #000000;
+
+$cta-c: #2ac615;
+
+$text-c: #282828;
+$text-c--lighter: #585858;
+$text-c--light: #a0a0a0;
+$text-c--lightest: #e0e0e0;
+
+
 
 //-------------------------------//
 //              MISC             //
 //-------------------------------//
 $img-path: './../img';
 
-$stop: 50;
+
+//-------------------------------//
+//           COMPONENTS          //
+//-------------------------------//
+
+// Checkbox
+$checkbox-w: 20px;
+$checkbox-h: $checkbox-w;
+
+$checkbox-bg-c: transparent;
+$checkbox-bg-c--active: transparent;
+
+$checkbox-border-c: #c4c4c4;
+
+$checkbox-icon-w: 20px;
+$checkbox-icon-h: 20px;
+
+// Switch - TODO colors to variables
+$switch-h: 24px;
+$switch-w: $switch-h * 2;
+
+
+$switch-toggle-w: $switch-h - 4px;
+$switch-toggle-h: $switch-h - 4px;
+
+$switch-primary-c: #50a2ff;
+$switch-neutral-c: #d0d0d0;

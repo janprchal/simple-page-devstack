@@ -1,0 +1,111 @@
+.sr-only {
+  @include sr-only;
+}
+
+.r-img {
+  @include responsive-img;
+}
+
+.pr {
+  position: relative;
+}
+
+
+// Fonts
+.tac {
+  text-align: center;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tar {
+  text-align: right;
+}
+
+
+// Fonts sizes
+.fs-normal {
+  font-size: $text-s;
+}
+
+.fs-bigger {
+  font-size: $text-s--bigger;
+}
+
+.fs-big {
+  font-size: $text-s--big;
+}
+
+.fs-biggest {
+  font-size: $text-s--biggest;
+}
+
+.fs-smaller {
+  font-size: $text-s--smaller;
+}
+
+.fs-small {
+  font-size: $text-s--small;
+}
+
+.fs-smallest {
+  font-size: $text-s--smallest;
+}
+
+// Fonts weights
+.fwl {
+  font-weight: 300;
+}
+
+.fwn {
+  font-weight: 400;
+}
+
+.fwm {
+  font-weight: 500;
+}
+
+.fwsb {
+  font-weight: 600;
+}
+
+.fwb {
+  font-weight: 700;
+}
+
+// Fonts colors
+.tc-normal {
+  color: $text-c;
+}
+
+.tc-light {
+  color: $text-c--light;
+}
+
+.tc-lighter {
+  color: $text-c--lighter;
+}
+
+.tc-lightest {
+  color: $text-c--lightest;
+}
+
+// Fonts styles, etc.
+.fsi {
+  font-style: italic;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// <br> tag work only on screen breakpoint
+.br-screen {
+  display: none;
+
+  @include mappy-query(screen) {
+    display: block;
+  }
+}

@@ -5,11 +5,13 @@
 // Configuration and helpers
 @import
   "utils/variables",
-  "utils/mixins";
+  "utils/mixins",
+  "utils/helper";
 
 // General classes etc.
 @import
   "base/normalize",
+  "base/typography",
   "base/general";
 
 // Layout
@@ -23,8 +25,9 @@
 
 // Components
 @import
-  "components/component",
-  "components/switch";
+  "components/checkbox",
+  "components/switch",
+  "components/hamburger";
 
 // Page-specific styles
 @import

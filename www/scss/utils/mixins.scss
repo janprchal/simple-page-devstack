@@ -1,93 +1,93 @@
 @mixin font-size($sizeValue: 1.6) {
-    font-size: ($sizeValue * 10) + px;
-    font-size: $sizeValue + rem;
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
 }
 
-// FONT-FACE
 // =============================================================================
 // String Replace
 // =============================================================================
 
 @function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
+$index: str-index($string, $search);
 
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
+@if $index {
+  @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+}
 
-	@return $string;
+@return $string;
 }
 
 // =============================================================================
 // Font Face
+// Nahravani fontu
 // =============================================================================
 
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
+$src: null;
 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
+$extmods: (
+  eot: "?",
+  svg: "#" + str-replace($name, " ", "_")
+);
 
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
+$formats: (
+  otf: "opentype",
+  ttf: "truetype"
+);
 
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
+@each $ext in $exts {
+  $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+  $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+  $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+}
 
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
+@font-face {
+  font-family: quote($name);
+  font-style: $style;
+  font-weight: $weight;
+  src: $src;
+}
 }
 
 // =============================================================================
 // Generuje marginy formou trid typu mt-$i { margin-top: $i } kde $i je iterace
 // od 0 do 50ti po 5ti
 // generuje vsechny smery
-// $stop - variables.scss
+// $gaps-stop - variables.scss
 // =============================================================================
 
-@mixin margin($stop) {
+@mixin margin($gaps-stop) {
   $margins: (
-          top: (
-                  shortcut: mt,
-                  long: margin-top
-          ),
+    top: (
+            shortcut: mt,
+            long: margin-top
+    ),
 
-          right: (
-                  shortcut: mr,
-                  long: margin-right
-          ),
+    right: (
+            shortcut: mr,
+            long: margin-right
+    ),
 
-          bottom: (
-                  shortcut: mb,
-                  long: margin-bottom
-          ),
+    bottom: (
+            shortcut: mb,
+            long: margin-bottom
+    ),
 
-          left: (
-                  shortcut: ml,
-                  long: margin-left
-          ),
+    left: (
+            shortcut: ml,
+            long: margin-left
+    ),
 
-          margin: (
-                  shortcut: m,
-                  long: margin
-          )
+    margin: (
+            shortcut: m,
+            long: margin
+    )
   );
 
   @each $item, $direction in $margins {
     $i: 0;
 
-    @while $i <= $stop {
+    @while $i <= $gaps-stop {
       .#{map-get($direction, shortcut)}-#{$i} {
         #{map-get($direction, long)}: #{$i}px;
       }
@@ -96,38 +96,38 @@
   }
 }
 
-@mixin padding($stop) {
+@mixin padding($gaps-stop) {
   $paddings: (
-          top: (
-                  shortcut: pt,
-                  long: padding-top
-          ),
+    top: (
+            shortcut: pt,
+            long: padding-top
+    ),
 
-          right: (
-                  shortcut: pr,
-                  long: padding-right
-          ),
+    right: (
+            shortcut: pr,
+            long: padding-right
+    ),
 
-          bottom: (
-                  shortcut: pb,
-                  long: padding-bottom
-          ),
+    bottom: (
+            shortcut: pb,
+            long: padding-bottom
+    ),
 
-          left: (
-                  shortcut: pl,
-                  long: padding-left
-          ),
+    left: (
+            shortcut: pl,
+            long: padding-left
+    ),
 
-          padding: (
-                  shortcut: p,
-                  long: padding
-          )
+    padding: (
+            shortcut: p,
+            long: padding
+    )
   );
 
   @each $item, $direction in $paddings {
     $i: 0;
 
-    @while $i <= $stop {
+    @while $i <= $gaps-stop {
       .#{map-get($direction, shortcut)}-#{$i} {
         #{map-get($direction, long)}: #{$i}px;
       }
@@ -139,7 +139,6 @@
 // =============================================================================
 // Pridava stylovani pro ::placeholder pseudoelement
 // =============================================================================
-
 @mixin optional-at-root($sel) {
   @at-root #{if(not &, $sel, selector-append(&, $sel))} {
     @content;
@@ -162,4 +161,56 @@
   @include optional-at-root(':-ms-input-placeholder') {
     @content;
   }
+}
+
+// =============================================================================
+// Container
+// jendoduchy container pro obsah
+// =============================================================================
+@mixin container() {
+  padding-right: $container-padding-x--sm;
+  padding-left: $container-padding-x--sm;
+
+  @include mappy-query(tablet) {
+    padding-right: $container-padding-x--md;
+    padding-left: $container-padding-x--md;
+  }
+
+  @include mappy-query(screen) {
+    max-width: $container-max-w;
+
+    margin-right: auto;
+    margin-left: auto;
+    
+    padding-right: $container-padding-x--lg;
+    padding-left: $container-padding-x--lg;
+  }
+}
+
+// =============================================================================
+// Screen reader only
+// schova obsah (text), tak aby byl viditelny
+// jen pro ctecky a crawlery
+// pouzit ve tride .sr-only
+// =============================================================================
+@mixin sr-only() {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// =============================================================================
+// Responsive image
+// prida zakladni responsivni chovani tagu <img />
+// pouzit v tride .r-img
+// =============================================================================
+@mixin responsive-img() {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
