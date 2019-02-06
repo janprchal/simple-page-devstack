@@ -1,32 +1,49 @@
 .btn {
-  display: inline-block;
+  display: inline-flex;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  justify-content: center;
+  align-items: center;
+
+  min-width: 160px;
+  height: 52px;
+
+  padding: 0 1rem;
+
+  background-color: $cta-c;
+
+  border: 0 none;
+  border-radius: 3px;
+
+  // font-family: $mono-font-family;
+  font-size: $text-s;
+  font-weight: 700;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  letter-spacing: .6px;
+
+  color: $light-c;
+
+  transition: all .3s ease;
+
   cursor: pointer;
-}
 
-.btn--red {
-  background-color: red;
-}
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
 
-.btn--blue {
-  background-color: blue;
-}
+  &:hover,
+  &:focus,
+  &:active,
+  &.is-active {
+    background-color: darken($cta-c, 7%);
 
-.btn--green {
-  background-color: green;
-}
-
-.btn--cyan {
-  background-color: cyan;
-}
-
-.btn--black {
-  background-color: black;
-}
-
-.btn--yellow {
-  background-color: yellow;
-}
-
-.btn--brown {
-  background-color: brown;
+    color: $light-c;
+    text-decoration: none;
+  }
 }

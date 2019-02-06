@@ -1,0 +1,56 @@
+.header {
+  position: fixed;
+  z-index: $header-z;
+
+  width: 100%;
+
+  background-color: $light-c;
+}
+
+.header__inner {
+  display: flex;
+
+  height: $header-h;
+
+  justify-content: space-between;
+  align-items: center;
+
+  @include container;
+  @include mappy-query(screen) {}
+}
+
+// Button & Hamburger
+.header__cta {
+  display: flex;
+}
+
+.header__logo {
+  max-width: 50%;
+}
+
+.header__button {
+  display: none;
+
+  @include mappy-query(mobile-bigger) {
+    display: block;
+  }
+
+  @include mappy-query(tablet-bigger) {
+    display: none;
+  }
+}
+
+.header__nav {}
+
+.header__hamburger {
+  display: flex;
+  align-items: center;
+
+  padding-left: 2rem;
+
+  @include mappy-query(tablet-bigger) {
+    display: none;
+  }
+}
+
+

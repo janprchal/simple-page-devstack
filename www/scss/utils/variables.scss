@@ -76,7 +76,7 @@ $gaps-stop: 50;
 $base-font-size: 16px;
 $base-line-height: 1.5;
 
-$text-font-family: montserrat, sans-serif;
+$text-font-family: sans-serif; // !!!
 
 $text-s: 1rem;
 
@@ -86,6 +86,7 @@ $text-s--smallest: 75%; // 12px
 
 $text-s--bigger: 112.5%; // 18px;
 $text-s--big: 125%; // 20px;
+$text-s--biggest: 131.25%; // 21px;
 
 $typi: (
   base: (
@@ -116,7 +117,6 @@ $text-c: #282828;
 $text-c--lighter: #585858;
 $text-c--light: #a0a0a0;
 $text-c--lightest: #e0e0e0;
-
 
 //-------------------------------//
 //              MISC             //
@@ -156,3 +156,9 @@ $switch-toggle-h: $switch-h - 4px;
 
 $switch-primary-c: #50a2ff;
 $switch-neutral-c: #d0d0d0;
+
+//-------------------------------//
+//            Z-INDEXES          //
+//-------------------------------//
+
+$header-z: 10;
