@@ -131,6 +131,63 @@ function Dom() {
     })
   }
 
+  // Collapsing section
+  var collapseSection = function(element) {
+    var sectionHeight = element.scrollHeight;
+
+    // save element's transition
+    var elementTransition = element.style.transition;
+    // disable element's transition
+    element.style.transition = '';
+
+    // if you wish to take control about animation
+    requestAnimationFrame(function() {
+      // set elements height
+      element.style.height = sectionHeight + 'px';
+      // set original transition
+      element.style.transition = elementTransition;
+
+      // on the next frame (as soon as the previous style change has taken effect),
+      // have the element transition to height: 0
+      requestAnimationFrame(function() {
+        element.style.height = 0 + 'px';
+      });
+    });
+  }
+  
+  // Expanding section
+  var expandSection = function(element) {
+    // get the height of the element's inner contnet, regardless of its actual size
+    var sectionHeight = element.scrollHeight;
+
+    // set height of the element's content
+    element.style.height = sectionHeight + 'px';
+
+    // when the next css transition finishes (which should be the one we just triggered)
+    element.addEventListener('transitioned', function(e) {
+      // remove this event listener so it only gets triggered once
+      element.removeEventListener('transitionend', arguments.callee);
+
+      // remove "height" from the element's inline styles, so it can return to its initial value
+      element.style.height = null;
+    });
+  }
+
+  var hiddenSectionTrigger = document.getElementById('js_hiddenSectionTrigger');
+  var hiddenSection = document.getElementById('js_hiddenSection');
+
+  hiddenSectionTrigger.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if(hiddenSection.getAttribute('data-collapsed') == 'true') {
+      expandSection(hiddenSection);
+      hiddenSection.setAttribute('data-collapsed', 'false');
+    } else {
+      collapseSection(hiddenSection);
+      hiddenSection.setAttribute('data-collapsed', 'true');
+    }
+  });
+
   loadSVG();
   scrolledHeader();
   scrollToSection();
