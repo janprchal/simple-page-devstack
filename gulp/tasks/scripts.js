@@ -9,7 +9,7 @@ const uglify = require('gulp-uglify');
 gulp.task('scripts-vendors', () =>  {
     return gulp.src(config.JS_VENDOR)
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat('vendors.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.JS_ALL));
@@ -17,7 +17,7 @@ gulp.task('scripts-vendors', () =>  {
 
 gulp.task('scripts-build', () => {
     return gulp.src([config.JS_ALL + '!(main)*.js', config.JS_ALL + 'main.js'])
-        .pipe(babel())
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat('app.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/www/js/'));
