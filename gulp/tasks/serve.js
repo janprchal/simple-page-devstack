@@ -21,7 +21,7 @@ gulp.task('serve', () => {
 
 
   /* Ready for addition tasks */
-  gulp.watch(config.SCSS_ALL, ['styles']);
+  gulp.watch(config.SCSS_ALL, gulp.series('styles'));
   //  TODO make templates, JS tasks they contains browserSync.reload()
   gulp.watch(config.TEMPLATES_ALL, () => browserSync.reload());
   gulp.watch(config.JS_ALL + '**/*', () => browserSync.reload());
