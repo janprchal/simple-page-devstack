@@ -33,7 +33,7 @@ gulp.task('styles', () => {
 
 
 //  TODO - critical CSS
-gulp.task('styles-build', ['styles'], () => {
+gulp.task('styles-build', gulp.series('styles', () => {
     const postcssDistPlugins = [
         cssnano({
             autoprefixer: { browsers: ['last 6 version', 'IE 10', 'IE 11', 'iOS >=7'] },
@@ -44,7 +44,7 @@ gulp.task('styles-build', ['styles'], () => {
     return gulp.src(config.CSS_BUILD + '*.css')
         .pipe(postcss(postcssDistPlugins))
         .pipe(gulp.dest('./dist/www/css/'));
-});
+}));
 
 
 gulp.task('fonts', () => {

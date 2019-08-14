@@ -44,4 +44,4 @@ gulp.task('svg-build', () => {
         .pipe(gulp.dest('./dist/www/svg'));
 });
 
-gulp.task('svg', ['svg:sprite']);
+gulp.task('svg', gulp.series('svg-sprite'));
